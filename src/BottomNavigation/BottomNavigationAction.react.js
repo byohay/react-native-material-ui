@@ -17,6 +17,10 @@ const propTypes = {
    */
   icon: PropTypes.oneOfType([PropTypes.element, PropTypes.string]).isRequired,
   /**
+   * Name of Icon set that should be use. From react-native-vector-icons
+   */
+  iconSet: PropTypes.string,
+  /**
    * Will be rendered under the icon as a content of the action.
    */
   label: PropTypes.string,
@@ -42,6 +46,7 @@ const defaultProps = {
   testID: null,
   label: null,
   onPress: null,
+  iconSet: null,
   active: false,
   disabled: false,
   style: {},

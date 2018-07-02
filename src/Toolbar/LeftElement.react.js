@@ -18,6 +18,10 @@ const propTypes = {
   leftElement: PropTypes.node,
   onLeftElementPress: PropTypes.func,
   onSearchClose: PropTypes.func,
+  /**
+   * Name of Icon set that should be use. From react-native-vector-icons
+   */
+  iconSet: PropTypes.string,
 };
 const defaultProps = {
   leftElementTestID: null,
@@ -26,6 +30,7 @@ const defaultProps = {
   onSearchClose: null,
   style: {},
   size: 24,
+  iconSet: null,
 };
 const contextTypes = {
   uiTheme: PropTypes.object.isRequired, // eslint-disable-line
@@ -123,6 +128,7 @@ class LeftElement extends PureComponent {
       onLeftElementPress,
       onSearchClose,
       size,
+      iconSet,
     } = this.props;
 
     if (!leftElement) {
@@ -162,6 +168,7 @@ class LeftElement extends PureComponent {
           color={flattenLeftElement.color}
           onPress={onPress}
           size={size}
+          iconSet={iconSet}
           style={flattenLeftElement}
         />
       </Animated.View>

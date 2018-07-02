@@ -27,6 +27,10 @@ const propTypes = {
   onRightElementPress: PropTypes.func,
   onSearchClearRequest: PropTypes.func.isRequired,
   onSearchPress: PropTypes.func.isRequired,
+  /**
+   * Name of Icon set that should be use. From react-native-vector-icons
+   */
+  iconSet: PropTypes.string,
 };
 const defaultProps = {
   rightElementTestID: null,
@@ -35,6 +39,7 @@ const defaultProps = {
   size: null,
   style: {},
   searchable: null,
+  iconSet: null,
 };
 const contextTypes = {
   uiTheme: PropTypes.object.isRequired, // eslint-disable-line
@@ -92,6 +97,7 @@ class RightElement extends PureComponent {
       size,
       searchValue,
       onSearchClearRequest,
+      iconSet,
     } = this.props;
 
     const styles = getStyles(this.props, this.context, this.state);
@@ -130,6 +136,7 @@ class RightElement extends PureComponent {
             color={flattenRightElement.color}
             size={size}
             style={flattenRightElement}
+            iconSet={iconSet}
             onPress={() => onRightElementPress({ action, index })}
           />
         );

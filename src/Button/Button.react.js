@@ -41,6 +41,10 @@ const propTypes = {
    */
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /**
+   * Name of Icon set that should be use. From react-native-vector-icons
+   */
+  iconSet: PropTypes.string,
+  /**
    * You can override any style for this button
    */
   style: PropTypes.shape({
@@ -60,6 +64,7 @@ const defaultProps = {
   disabled: false,
   raised: false,
   upperCase: true,
+  iconSet: null,
   style: {},
 };
 const contextTypes = {
@@ -164,7 +169,7 @@ class Button extends PureComponent {
   };
 
   renderIcon = styles => {
-    const { icon } = this.props;
+    const { icon, iconSet } = this.props;
     const textFlatten = StyleSheet.flatten(styles.text);
 
     if (!icon) {
@@ -178,6 +183,7 @@ class Button extends PureComponent {
     } else if (typeof icon === 'string') {
       result = (
         <Icon
+          iconSet={iconSet}
           name={icon}
           color={textFlatten.color}
           style={styles.icon}
