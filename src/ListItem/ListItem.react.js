@@ -95,6 +95,7 @@ const defaultProps = {
   numberOfLines: 1,
   children: null,
   style: {},
+  iconSet: null,
 };
 const contextTypes = {
   uiTheme: PropTypes.object.isRequired, // eslint-disable-line
