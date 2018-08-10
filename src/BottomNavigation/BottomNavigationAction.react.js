@@ -83,7 +83,7 @@ function getStyles(props, context) {
 
 class BottomNavigationAction extends PureComponent {
   renderIcon(styles) {
-    const { icon } = this.props;
+    const { icon, iconSet } = this.props;
     const { color } = StyleSheet.flatten(styles.icon);
 
     let element;
@@ -92,7 +92,7 @@ class BottomNavigationAction extends PureComponent {
       // custom element
       element = React.cloneElement(icon, { style: styles.icon, color });
     } else {
-      element = <Icon name={icon} style={styles.icon} color={color} />;
+      element = <Icon name={icon} style={styles.icon} color={color} iconSet={iconSet} />;
     }
     return element;
   }
